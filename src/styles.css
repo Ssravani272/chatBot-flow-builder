@@ -1,0 +1,196 @@
+:root{
+  --panel-w: 330px;
+  --topbar-h: 56px;
+  --teal-100:#CFEFEB;
+  --teal-200:#BCE8E1;
+  --border:#E5E7EB;
+  --text:#374151;
+}
+
+/* layout */
+.app{
+  height:100vh;
+  width:100vw;
+  display:flex;
+  flex-direction:column;
+  background:#fff;
+}
+
+.topbar{
+  height:var(--topbar-h);
+  border-bottom:1px solid var(--border);
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  padding:0 16px;
+  position:relative;
+  background:#fff;
+}
+
+.workspace{
+  flex:1;
+  display:flex;
+  min-height:0; /* make children flex correctly */
+}
+
+.canvas{
+  flex:1;
+  background:#fafafa;
+}
+
+/* right panel */
+.side-panel{
+  width:var(--panel-w);
+  border-left:1px solid var(--border);
+  background:#fff;
+  padding:16px;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+/* nodes panel tile */
+.tile{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  border:1px solid #CBD5E1;
+  background:#fff;
+  padding:16px;
+  border-radius:12px;
+  cursor:grab;
+}
+.tile:active{ cursor:grabbing; }
+.tile__icon{ font-size:18px; }
+.tile__label{ font-size:14px; color:#334155; }
+
+/* settings panel */
+.settings__header{
+  font-weight:600;
+  font-size:14px;
+  margin-bottom:6px;
+}
+.settings__label{
+  font-size:12px;
+  color:#6B7280;
+}
+.settings__textarea{
+  width:100%;
+  border:1px solid var(--border);
+  border-radius:8px;
+  padding:8px;
+  font-size:14px;
+  resize:vertical;
+}
+
+/* node card */
+.node-card{
+  width:320px;
+  border:1px solid var(--border);
+  border-radius:12px;
+  background:#fff;
+  box-shadow:0 4px 12px rgba(0,0,0,0.06);
+}
+.node-card--selected{
+  outline:2px solid #60A5FA;
+  outline-offset:0;
+}
+.node-card__header{
+  padding:8px 12px;
+  font-weight:600;
+  font-size:14px;
+  background:var(--teal-100);
+  border-bottom:1px solid var(--teal-200);
+  border-top-left-radius:12px;
+  border-top-right-radius:12px;
+}
+.node-card__body{
+  padding:12px;
+  color:var(--text);
+  font-size:14px;
+}
+
+/* save button + error pill */
+.save-btn{
+  height:36px;
+  padding:0 14px;
+  border-radius:10px;
+  border:1px solid var(--border);
+  font-weight:600;
+}
+.save-btn--primary{
+  background:#2563EB;
+  color:#fff;
+  border-color:#2563EB;
+}
+.save-btn--disabled{
+  background:#E5E7EB;
+  color:#6B7280;
+}
+
+.error-pill{
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%);
+  top:8px;
+  background:#FECACA;
+  color:#7F1D1D;
+  padding:6px 12px;
+  border-radius:999px;
+  border:1px solid #FCA5A5;
+  font-size:13px;
+}
+
+/* header row inside the settings panel */
+.settings__top{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding:6px 0 10px;
+  border-bottom:1px solid var(--border);
+  margin-bottom:10px;
+}
+
+.back-btn{
+  width:30px; height:30px;
+  padding:0;
+  border:1px solid var(--border);
+  border-radius:8px;
+  background:#fff; color:#111827; cursor:pointer;
+
+  /* center content reliably */
+  display:inline-grid;
+  place-items:center;
+  line-height:0;
+  box-sizing:border-box;
+}
+
+.back-btn:hover{ background:#F3F4F6; }
+
+/* FORCE the SVG to center and ignore any global rules */
+.back-icon{
+  width:16px; height:16px;
+  display:block;
+  justify-self:center !important;
+  align-self:center !important;
+
+  /* nuke common offenders */
+  margin:0 !important;
+  position:static !important;
+  inset:auto !important;
+  transform:none !important;
+  float:none !important;
+}
+
+.back-icon path{
+  stroke: currentColor !important;
+  stroke-width:2 !important;
+  fill:none !important;
+  vector-effect: non-scaling-stroke;
+}
+
+
+.settings__title{
+  font-weight:600;
+  font-size:14px;
+}
