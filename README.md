@@ -46,12 +46,10 @@ https://your-project-name.vercel.app
 ## Getting Started
 
 ```bash
-# 1) Create the app (Vite)
-npm create vite@latest chatbot-flow -- --template react-ts
-cd chatbot-flow
+# 1) Clone the git hub repo
 
 # 2) Install deps
-npm i reactflow nanoid clsx
+npm i 
 
 # 3) Run
 npm run dev
