@@ -1,5 +1,4 @@
 import { Handle, Position, type NodeProps as RFNodeProps } from 'reactflow';
-import React from 'react';
 import '../styles.css';
 
 type Data = { text: string; label: string };

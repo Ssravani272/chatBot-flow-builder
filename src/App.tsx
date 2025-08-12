@@ -18,6 +18,7 @@ import type {
   Connection as RFConnection,
   Edge as RFEdge,
   Node as RFNode,
+  NodeMouseHandler,
 } from 'reactflow';
 import type { ChatNode, NodeKind, NodeDataMap } from './nodes/types';
 import { nodeTypes, palette, makeDataByKind, getDef } from './nodes/registry';
@@ -197,7 +198,13 @@ function CanvasInner() {
     evt.dataTransfer.dropEffect = 'move';
   };
 
-  const onNodeClick = useCallback(( node: ChatNode) => setSelected(node), []);
+  const onNodeClick: NodeMouseHandler = useCallback(
+  (_event, node) => {
+    // node is RFNode<any>; narrow it to your app’s node type
+    setSelected(node as ChatNode);
+  },
+  []
+);
   const onPaneClick = useCallback(() => setSelected(null), []);
 
   // Inspector patcher (type-agnostic)
